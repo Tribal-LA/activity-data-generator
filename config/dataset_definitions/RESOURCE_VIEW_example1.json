@@ -1,0 +1,21 @@
+{
+	"profile_id": "jisc_v1.0.1",
+	"platform": "BbGenerator",
+	"n_records": 50000,
+	"membership_def": "mset_example",
+	"prune_future": true,
+	"stereotype_models": {
+		"a": {
+			"directed": "constructivist",
+			"undirected": "mixed"
+		},
+		"b": {
+			"directed": "intensive",
+			"undirected": "normal"
+		},
+		"c": {
+			"directed": "formative_assess",
+			"undirected": "normal"
+		}
+	}
+}

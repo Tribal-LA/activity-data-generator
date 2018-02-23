@@ -1,0 +1,14 @@
+{
+	"membership_def": "mset_example",
+	"generate_datasets": [
+		{
+			"statement_family": "RESOURCE_VIEW",
+			"dataset_defs": ["example1"]
+		},
+		{
+			"custom_generator": "attendance.AttendanceDataset",
+			"statement_family": "ATTENDANCE",
+			"dataset_defs": ["example1"]
+		}
+	]
+}

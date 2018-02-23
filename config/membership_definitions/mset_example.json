@@ -1,0 +1,15 @@
+{
+	"n_agents": 200,
+	"n_groups": 10,
+	"group_load": {"min": 2, "max": 4},
+	"academic_years": [2016, 2017],
+	"group_stereotype_proportions": {
+		"a": 0.2,
+		"b": 0.6,
+        "c": 0.2
+	},
+	"agent_stereotype_proportions": {
+		"directed": 0.2,
+		"undirected": 0.5
+	}
+}

@@ -1,0 +1,222 @@
+{
+	"models_type": "random-session",
+	"columns": ["VERB", "ACTIVITY_TYPE"],
+	"agent_id_col": "STUDENT_ID",
+	"group_id_col": "VLE_MOD_ID",
+	"group_set_col": "INST_TIER_1",
+	"activity_id_col": "ACTIVITY_ID",
+	"activity_id_pattern": "VLE_{VLE_MOD_ID}_{ACTIVITY_TYPE}_{__n:02}",
+	"n_activities": 100,
+	"temporal": [
+		{
+		"note": "Term 1",
+		"weeks": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+		"intensity": 1.0,
+		"day_pattern": [1,
+		1,
+		0.8,
+		1,
+		1,
+		0.3,
+		0.8]
+		},
+		{
+		"note": "Xmas",
+		"weeks": [14, 15, 16, 17, 18],
+		"intensity": 0.2,
+		"day_pattern": [1,
+		1,
+		1,
+		1,
+		1,
+		1,
+		1]
+		},
+		{
+		"note": "Term 2",
+		"weeks": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+		"intensity": 0.7,
+		"day_pattern": [1,
+		1,
+		0.8,
+		1,
+		1,
+		0.5,
+		0.7]
+	}],
+	"models": {
+		"mixed": {
+			"compound_model": {"intensive":50, "constructivist":50},
+			"session_model": {
+				"interval": {"dist": "norm", "mu": 60, "sigma": 15},
+				"min_length": 2,
+				"survival": 0.6,
+				"max_length": 40
+				}
+			},
+		"normal": {
+			"p": 1.0,
+			"column_values": {
+				"VERB": "viewed",
+				"ACTIVITY_TYPE": {
+					"categorical": {
+						"content": 85,
+						"page": 25,
+						"forum": 10,
+						"quiz": 10
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod": {
+					"08:00": 0.2,
+					"10:00": 0.3,
+					"11:00": 0.2,
+					"13:30": 0.2,
+					"15:00": 0.2,
+					"19:00": 0.4,
+					"22:00": 0.2
+				},
+				"tod_pattern_type": "norm",
+				"distributions": {
+					"08:00": 60,
+					"10:00": 20,
+					"11:00": 90,
+					"13:30": 10,
+					"15:00": 90,
+					"19:00": 60,
+					"22:00": 30
+				}
+			},
+			"session_model": {
+				"interval": {"dist": "norm", "mu": 60, "sigma": 15},
+				"min_length": 2,
+				"survival": 0.9,
+				"max_length": 40
+			}
+		},
+		"intensive": {
+			"p": 3.0,
+			"column_values": {
+				"VERB": "viewed",
+				"ACTIVITY_TYPE": {
+					"categorical": {
+						"content": 85,
+						"page": 25,
+						"forum": 10,
+						"quiz": 10
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod": {
+					"08:00": 0.2,
+					"10:00": 0.3,
+					"11:00": 0.2,
+					"13:30": 0.2,
+					"15:00": 0.2,
+					"19:00": 0.4,
+					"22:00": 0.2
+				},
+				"tod_pattern_type": "norm",
+				"distributions": {
+					"08:00": 60,
+					"10:00": 20,
+					"11:00": 90,
+					"13:30": 10,
+					"15:00": 90,
+					"19:00": 60,
+					"22:00": 30
+				}
+			},
+			"session_model": {
+				"interval": {"dist": "norm", "mu": 60, "sigma": 15},
+				"min_length": 2,
+				"survival": 0.9,
+				"max_length": 40
+			}
+		},
+		"constructivist": {
+			"p": 4.0,
+			"column_values": {
+				"VERB": "viewed",
+				"ACTIVITY_TYPE": {
+					"categorical": {
+						"content": 15,
+						"page": 25,
+						"forum": 80,
+						"quiz": 20
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod": {
+					"08:00": 0.2,
+					"10:00": 0.3,
+					"11:00": 0.2,
+					"13:30": 0.2,
+					"15:00": 0.2,
+					"19:00": 0.4,
+					"22:00": 0.2
+				},
+				"tod_pattern_type": "norm",
+				"distributions": {
+					"08:00": 60,
+					"10:00": 20,
+					"11:00": 90,
+					"13:30": 10,
+					"15:00": 90,
+					"19:00": 60,
+					"22:00": 30
+				}
+			},
+			"session_model": {
+				"interval": {"dist": "norm", "mu": 30, "sigma": 15},
+				"min_length": 15,
+				"survival": 0.9,
+				"max_length": 40
+			}
+		},
+		"formative_assess": {
+			"p": 1.0,
+			"column_values": {
+				"VERB": "viewed",
+				"ACTIVITY_TYPE": {
+					"categorical": {
+						"content": 50,
+						"page": 15,
+						"forum": 10,
+						"quiz": 50
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod": {
+					"08:00": 0.2,
+					"10:00": 0.3,
+					"11:00": 0.2,
+					"13:30": 0.2,
+					"15:00": 0.2,
+					"19:00": 0.4,
+					"22:00": 0.2
+				},
+				"tod_pattern_type": "norm",
+				"distributions": {
+					"08:00": 60,
+					"10:00": 20,
+					"11:00": 90,
+					"13:30": 10,
+					"15:00": 90,
+					"19:00": 60,
+					"22:00": 30
+				}
+			},
+			"session_model": {
+				"interval": {"dist": "norm", "mu": 20, "sigma": 15},
+				"min_length": 20,
+				"survival": 0.95,
+				"max_length": 50
+			}
+		}
+	}
+}

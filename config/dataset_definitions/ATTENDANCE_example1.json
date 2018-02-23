@@ -1,0 +1,21 @@
+{
+	"profile_id": "jisc_v1.0.1",
+	"platform": "Generator",
+	"n_records": 5000,
+	"membership_def": "mset_example",
+	"prune_future": true,
+	"stereotype_models": {
+		"a": {
+			"directed": "crazy",
+			"undirected": "mixed"
+		},
+		"b": {
+			"directed": "crazy",
+			"undirected": "normal"
+		},
+		"c": {
+			"directed": "normal",
+			"undirected": "normal"
+		}
+	}
+}

@@ -1,0 +1,162 @@
+{
+	"models_type": "event",
+	"columns": ["EVENT_DESCRIPTION",
+	"EVENT_MAX_COUNT",
+	"EVENT_TYPE",
+	"EVENT_MANDATORY",
+	"EVENT_ATTENDED",
+	"ATTENDANCE_LATE",
+	"ATTENDANCE_CATEGORY",
+	"__duration_mins"],
+	"agent_id_col": "STUDENT_ID",
+	"group_id_col": "MOD_INSTANCE_ID",
+	"group_set_col": "COURSE_INSTANCE_ID",
+	"activity_id_col": "EVENT_ID",
+	"activity_id_pattern": "A{MOD_INSTANCE_ID}_{timestamp}",
+	"n_activities": 1,
+	"temporal": [
+		{
+		"note": "Term 1",
+		"weeks": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+		"intensity": 1.0,
+		"day_pattern": [1,
+		1,
+		0.8,
+		1,
+		1,
+		0.3,
+		0.8]
+		},
+		{
+		"note": "Term 2",
+		"weeks": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+		"intensity": 0.7,
+		"day_pattern": [1,
+		1,
+		0.8,
+		1,
+		1,
+		0.5,
+		0.7]
+	}],
+	"models": {
+		"mixed": {
+			"compound_model": {"normal": 60, "slack_afternoon": 40}
+			},
+		"normal": {
+			"p": 1.0,
+			"column_values": {
+				"EVENT_DESCRIPTION": "normal desc",
+				"EVENT_MAX_COUNT": "40",
+				"EVENT_TYPE": "Lecture",
+				"EVENT_TYPE_ID": "lecture",
+				"EVENT_MANDATORY": {
+					"categorical": {
+						"1": 60,
+						"0": 40
+					}
+				},
+				"ATTENDANCE_CATEGORY": {
+					"categorical": {
+						"P": 70,
+						"L": 10,
+						"A": 20
+					}
+				},
+				"__duration_mins": {
+					"categorical": {
+						"60": 50,
+						"90": 30,
+						"120": 20
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod_pattern_type": "choice",
+				"tod": {
+					"09:00": 10,
+					"10:30": 15,
+					"14:00": 10,
+					"15:30": 5
+				}
+			}
+		},
+		"crazy": {
+			"p": 0.5,
+			"column_values": {
+				"EVENT_DESCRIPTION": "crazy desc",
+				"EVENT_MAX_COUNT": "40",
+				"EVENT_TYPE": "Lecture",
+				"EVENT_TYPE_ID": "lecture",
+				"EVENT_MANDATORY": {
+					"categorical": {
+						"1": 90,
+						"0": 10
+					}
+				},
+				"ATTENDANCE_CATEGORY": {
+					"p_na": 0.2,
+					"categorical": {
+						"P": 70,
+						"L": 10,
+						"A": 20
+					}
+				},
+				"__duration_mins": {
+					"categorical": {
+						"30": 50,
+						"60": 30
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod_pattern_type": "choice",
+				"tod": {
+					"09:00": 10,
+					"10:00": 15,
+					"11:00": 15,
+					"12:00": 10,
+					"14:00": 10,
+					"15:00": 15,
+					"16:00": 15
+				}
+			}
+		},
+		"slack_afternoon": {
+			"p": 1.0,
+			"column_values": {
+				"EVENT_DESCRIPTION": "slackers event",
+				"EVENT_MAX_COUNT": "40",
+				"EVENT_TYPE": "Lecture",
+				"EVENT_TYPE_ID": "lecture",
+				"EVENT_MANDATORY": {
+					"categorical": {
+						"1": 50,
+						"0": 50
+					}
+				},
+				"ATTENDANCE_CATEGORY": {
+					"categorical": {
+						"P": 30,
+						"L": 40,
+						"A": 30
+					}
+				},
+				"__duration_mins": {
+					"categorical": {
+						"60": 50,
+						"90": 30,
+						"120": 20
+					}
+				}
+			},
+			"tod_pattern": {
+				"tod_pattern_type": "choice",
+				"tod": {
+					"14:00": 10,
+					"15:30": 5
+				}
+			}
+		}
+	}
+}
